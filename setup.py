@@ -9,12 +9,12 @@ __email__ = "the.spartan.proj@gmail.com"
 __status__ = "Development"
 
 setup(
-   name = 'cutter',
+   name = 'slasher',
    version = __version__,
    author = __author__,
    author_email = __email__,
-   packages = ['cutter'],
-   entry_points = {'gui_scripts': ['cutter = cutter.__main__:main',],},
+   packages = ['slasher'],
+   entry_points = {'gui_scripts': ['Slasher = slasher.__main__:main',],},
    license = __license__,
    description = 'Python tool for easy spectrum cutting',
    python_requires = '>=3.6',
