@@ -100,7 +100,7 @@ For the current version, slasher accepts only *ascii* catalogs of columns and *f
 * The first column must be the name of the spectrum in fits format (more on that below)
 * The second column must be the name of the noise spectrum in fits format.
 * The third column must be the redshift column (can be filled with -999 if you don't have redshifts).
-* Each line must contain the same number of column.
+* Each line must contain the same number of columns.
 
 
 The Graphical User Interface
@@ -109,30 +109,23 @@ When starting slasher, the graphical interface shows up in the screen (Screensho
 
 It is composed of five area:
 
-1. The plotting Area, where the plot will be displayed.
-2. The matplotlib toolbar. Allows you to zoom in/out, select specific part of the plot, etc...
-3. The 'Add element in plot' button. It is the button you will use to add elements in the plot such as Line plot, Scatter plot, histograms, strips, text, etc...
-4. Graphical Elements Panel. Then you click in the previous button, the widgets for the graphical elements you want to use will be displayed in that area. The widgets depend on the type of element  you want to add into the plot. (:doc:`graphics`)
-5. Customization Panel. This Panel remains the same all the time and help you to customize graphical properties of the plot itself such as: background color, axis tickness or color, ticks label size, fontsizes, etc. (:doc:`custom`)
+1. The plotting Area, at the top, where you will cut the spectra.
 
-When clicking on 'Add element in plot' you have these different choices:
+2. The table: This is where your input catalog is displayed. There is one extra column called 'Already Cut'. If yes, a cut spectrum already exists in the destination folder, if 'No', no cut spectrum exists in the destination folder.
 
- * line
- * line / new file
- * scatter
- * scatter /new file
- * histogram
- * histogram /new file
- * Error
- * Error / new file
- * Straight line
- * Span
- * Text
- * Image
- * Image / new file
+3. The button area:
 
-All the plotting elements are described here: :doc:`graphics`. As you can see some plotting elements are repeated (e.g. 'line' and 'line / new file'). As you start Photon with a particular file it can be useful to be able to load data from another file. If this is the case you can use 'XX / new file' and Photon will open dialog window to choose another file to use in photon. When loading a pre-existing plot configuration, if you want to add more data to your plot, you will only have the 'New file' choices.
+   * Prev spectrum allows you to go to the previous spectrum in the list
+   * Next spectrum allows you to go to the next spectrum in the list
+   * Save spec: allows you to save the cut spectrum
 
+4. Original and destination folder: the original folder is where the original spectra are stored. The destination folder is where the cut spectra will be saved.
+
+5. Search table: to find faster elements in the table you can use this field to write elemtns you want to find in the table. Press enter to search.
+
+6. Check: This will check, for each line in the table if a cut spectrum exists in the destination directory.
+
+7. Xlow and X high: The limits, in wavelength of the cut spectrum.
 
 .. figure:: GUI.png
     :width: 750px
@@ -140,3 +133,24 @@ All the plotting elements are described here: :doc:`graphics`. As you can see so
     :alt: GUI
 
     GUI of slasher
+
+Cutting a spectrum
+~~~~~~~~~~~~~~~~~~
+
+Once loaded a spectrum is displayed in gray. To cut it you need to click twice, once on a low wavelength and once on a high wavelength. The two wavelength will be displayed in red in the Xlow/Xhigh area of the GUI (see above). The region between the two spectra will be highlighted in red: this will be the cut spectrum. Once cut, you can press the 'save spec' button to save it on disk. 
+
+
+In order to fasten the process you can use the following keyboard shortcut:
+
+* 'n': next spectrum
+* 'p': previous spectrum
+* 's': save cut spectrum
+
+Spectrum format
+~~~~~~~~~~~~~~~
+
+TO be able to be loaded in slasher, a spectrum needs to be in fits format and contain the following header keywords:
+
+* CRVAL1: first wavelength
+* CRDELT1: delta in wavelength between two points
+* NAXIS1: The number of wavelength points.

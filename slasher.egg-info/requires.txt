@@ -1,0 +1,4 @@
+PyQt5>=v5.15.4
+catscii>=19.8
+matplotlib>=3.4.3
+astropy>=5.0.1

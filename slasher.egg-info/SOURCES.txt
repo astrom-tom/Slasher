@@ -1,0 +1,13 @@
+README.md
+setup.py
+slasher/GUI.py
+slasher/__info__.py
+slasher/__init__.py
+slasher/__main__.py
+slasher/cli.py
+slasher.egg-info/PKG-INFO
+slasher.egg-info/SOURCES.txt
+slasher.egg-info/dependency_links.txt
+slasher.egg-info/entry_points.txt
+slasher.egg-info/requires.txt
+slasher.egg-info/top_level.txt

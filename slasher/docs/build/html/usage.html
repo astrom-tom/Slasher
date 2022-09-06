@@ -137,7 +137,7 @@ Use it like this:</p>
 <li><p>The first column must be the name of the spectrum in fits format (more on that below)</p></li>
 <li><p>The second column must be the name of the noise spectrum in fits format.</p></li>
 <li><p>The third column must be the redshift column (can be filled with -999 if you don’t have redshifts).</p></li>
-<li><p>Each line must contain the same number of column.</p></li>
+<li><p>Each line must contain the same number of columns.</p></li>
 </ul>
 </section>
 <section id="the-graphical-user-interface">
@@ -145,37 +145,45 @@ Use it like this:</p>
 <p>When starting slasher, the graphical interface shows up in the screen (Screenshot below).</p>
 <p>It is composed of five area:</p>
 <ol class="arabic simple">
-<li><p>The plotting Area, where the plot will be displayed.</p></li>
-<li><p>The matplotlib toolbar. Allows you to zoom in/out, select specific part of the plot, etc…</p></li>
-<li><p>The ‘Add element in plot’ button. It is the button you will use to add elements in the plot such as Line plot, Scatter plot, histograms, strips, text, etc…</p></li>
-<li><p>Graphical Elements Panel. Then you click in the previous button, the widgets for the graphical elements you want to use will be displayed in that area. The widgets depend on the type of element  you want to add into the plot. (<span class="xref std std-doc">graphics</span>)</p></li>
-<li><p>Customization Panel. This Panel remains the same all the time and help you to customize graphical properties of the plot itself such as: background color, axis tickness or color, ticks label size, fontsizes, etc. (<span class="xref std std-doc">custom</span>)</p></li>
-</ol>
-<p>When clicking on ‘Add element in plot’ you have these different choices:</p>
-<blockquote>
-<div><ul class="simple">
-<li><p>line</p></li>
-<li><p>line / new file</p></li>
-<li><p>scatter</p></li>
-<li><p>scatter /new file</p></li>
-<li><p>histogram</p></li>
-<li><p>histogram /new file</p></li>
-<li><p>Error</p></li>
-<li><p>Error / new file</p></li>
-<li><p>Straight line</p></li>
-<li><p>Span</p></li>
-<li><p>Text</p></li>
-<li><p>Image</p></li>
-<li><p>Image / new file</p></li>
+<li><p>The plotting Area, at the top, where you will cut the spectra.</p></li>
+<li><p>The table: This is where your input catalog is displayed. There is one extra column called ‘Already Cut’. If yes, a cut spectrum already exists in the destination folder, if ‘No’, no cut spectrum exists in the destination folder.</p></li>
+<li><p>The button area:</p>
+<ul class="simple">
+<li><p>Prev spectrum allows you to go to the previous spectrum in the list</p></li>
+<li><p>Next spectrum allows you to go to the next spectrum in the list</p></li>
+<li><p>Save spec: allows you to save the cut spectrum</p></li>
 </ul>
-</div></blockquote>
-<p>All the plotting elements are described here: <span class="xref std std-doc">graphics</span>. As you can see some plotting elements are repeated (e.g. ‘line’ and ‘line / new file’). As you start Photon with a particular file it can be useful to be able to load data from another file. If this is the case you can use ‘XX / new file’ and Photon will open dialog window to choose another file to use in photon. When loading a pre-existing plot configuration, if you want to add more data to your plot, you will only have the ‘New file’ choices.</p>
+</li>
+<li><p>Original and destination folder: the original folder is where the original spectra are stored. The destination folder is where the cut spectra will be saved.</p></li>
+<li><p>Search table: to find faster elements in the table you can use this field to write elemtns you want to find in the table. Press enter to search.</p></li>
+<li><p>Check: This will check, for each line in the table if a cut spectrum exists in the destination directory.</p></li>
+<li><p>Xlow and X high: The limits, in wavelength of the cut spectrum.</p></li>
+</ol>
 <figure class="align-center" id="id1">
 <a class="reference internal image-reference" href="_images/GUI.png"><img alt="GUI" src="_images/GUI.png" style="width: 750px;" /></a>
 <figcaption>
 <p><span class="caption-text">GUI of slasher</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
 </figcaption>
 </figure>
+</section>
+<section id="cutting-a-spectrum">
+<h2>Cutting a spectrum<a class="headerlink" href="#cutting-a-spectrum" title="Permalink to this headline"></a></h2>
+<p>Once loaded a spectrum is displayed in gray. To cut it you need to click twice, once on a low wavelength and once on a high wavelength. The two wavelength will be displayed in red in the Xlow/Xhigh area of the GUI (see above). The region between the two spectra will be highlighted in red: this will be the cut spectrum. Once cut, you can press the ‘save spec’ button to save it on disk.</p>
+<p>In order to fasten the process you can use the following keyboard shortcut:</p>
+<ul class="simple">
+<li><p>‘n’: next spectrum</p></li>
+<li><p>‘p’: previous spectrum</p></li>
+<li><p>‘s’: save cut spectrum</p></li>
+</ul>
+</section>
+<section id="spectrum-format">
+<h2>Spectrum format<a class="headerlink" href="#spectrum-format" title="Permalink to this headline"></a></h2>
+<p>TO be able to be loaded in slasher, a spectrum needs to be in fits format and contain the following header keywords:</p>
+<ul class="simple">
+<li><p>CRVAL1: first wavelength</p></li>
+<li><p>CRDELT1: delta in wavelength between two points</p></li>
+<li><p>NAXIS1: The number of wavelength points.</p></li>
+</ul>
 </section>
 </section>
 

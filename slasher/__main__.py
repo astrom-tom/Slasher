@@ -43,7 +43,7 @@ def main():
     if args.file is None:
         print('\n\t No file configuration given...exiting slasher...\n\
                Try slasher --help to look at the options\n')
-    #    sys.exit()
+        sys.exit()
 
     if args.file is not None:
         print('\n\t Load file: %s\n'%args.file)

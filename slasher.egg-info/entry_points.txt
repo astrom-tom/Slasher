@@ -1,0 +1,3 @@
+[gui_scripts]
+Slasher = slasher.__main__:main
+

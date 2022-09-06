@@ -1,0 +1,11 @@
+Metadata-Version: 1.2
+Name: slasher
+Version: 22.9.1
+Summary: Python tool for easy spectrum cutting
+Home-page: UNKNOWN
+Author: Romain Thomas
+Author-email: the.spartan.proj@gmail.com
+License: GNU GPL v3
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
