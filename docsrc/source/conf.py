@@ -124,7 +124,7 @@ html_sidebars = {'**':['globaltoc.html', 'relations.html','searchbox.html'],}
 # -- Options for HTMLHelp output ------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'Photondoc'
+htmlhelp_basename = 'slasherdoc'
 
 
 # Grouping the document tree into LaTeX files. List of tuples
