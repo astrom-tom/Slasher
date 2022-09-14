@@ -255,7 +255,7 @@ class Main_window(QWidget):
             spec_name, extension = os.path.splitext(self.spectrum_path)
             del extension
             spec_name = spec_name.split('/')[-1]
-            cut_spec = os.path.join(self.saved_directory, spec_name+'_cut.ascii')
+            cut_spec = os.path.join(self.saved_directory, spec_name+'_cut.spec')
             numpy.savetxt(cut_spec, numpy.array([self.cutx, self.cuty, self.cuty_noise]).T)
 
     def dialog_folder(self, type_folder):
@@ -314,7 +314,7 @@ class Main_window(QWidget):
             del extension
 
             ##name of the cut spec name
-            cut_name = os.path.join(self.saved_directory, spec_name + '_cut.ascii')
+            cut_name = os.path.join(self.saved_directory, spec_name + '_cut.spec')
 
             ##check if that file exist
             if os.path.isfile(cut_name):
@@ -426,7 +426,7 @@ class Main_window(QWidget):
         ##check if a cut spectrum is there, if yes display it
         spec_name, extension = os.path.splitext(spectrum)
         del extension
-        cut_name = os.path.join(self.saved_directory, spec_name + '_cut.ascii')
+        cut_name = os.path.join(self.saved_directory, spec_name + '_cut.spec')
         if os.path.isfile(cut_name):
             cut_spec = catscii.load_cat(cut_name, False)
             self.cutx = cut_spec.get_column('Col1', float)
